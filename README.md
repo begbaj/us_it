@@ -1,4 +1,4 @@
-# xkb_usforitalians
+# us_it
 A X11 US keyboard layout for italians, explained steb by step
 
 # Introduzione
