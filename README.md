@@ -1,41 +1,55 @@
 # us_it
 A X11 US keyboard layout for italians, explained steb by step
 
-# Introduzione
-Poiché la repo é rivolta ad un pubblico italiano, mi concedo, almeno per questa volta, un readme scritto in lingua natia.
-Di seguito spiegherò passo passo come ho modificato alcuni file di sistema per ottenere una nuova variante del layout americano in modo da supportare le lettere accentate. Tutti noi sappiamo quanto sia stressante dover tenere due layout per la tastiera solo ed esclusivamente per premere quei tasti accentati.
+## Fix xkb update su Arch Linux
+To fix the following error message:
+```
+xkeyboard-config: /usr/share/X11/xkb exists in filesystem
+```
+
+run the following:
+```
+sudo mv /usr/share/X11/xkb /usr/share/X11/xkb.bak  # backup the directory  
+sudo pacman -Syu
+```
+Then reinstall using the `install.sh` script.
+
+# Introduction
+We italians all know how annoying it is to switch between two layouts just to type accented characters, while the us layout is still more comfortable for coding.
 
 # Come fare
-Inanzitutto, ci tengo a chiarire che non ho capito molto bene cosa stia succedendo e perché stia succedendo quello che succede, ma funziona. La documentazione di xkb é fumosa e confusa, quindi per fare i miei cambiamenti ho seguito un [tutorial](https://rlog.rgtti.com/2014/05/01/how-to-modify-a-keyboard-layout-in-linux/) che spiega più o meno i passaggi da seguire.
-Poiché esiste già un tutorial su come crearsi un layout, non spiegherò come ho fatto, ma solo come installarlo e usarlo.
+First off, I want to make it clear: I don’t fully understand what’s happening or why it works—but it does. xkb’s documentation is vague and confusing, so I followed this [tutorial](https://rlog.rgtti.com/2014/05/01/how-to-modify-a-keyboard-layout-in-linux/) that roughly outlines the steps.
 
-I file interessati sono i seguenti:
+Since there’s already a tutorial on creating a layout, I won’t explain how I made it—just how to install and use it.
+
+The relevant files are:
 * /usr/share/X11/xkb/symbols/us
 * /usr/share/X11/xkb/rules/base.lst
 * /usr/share/X11/xkb/rules/evdev.lst
 * /usr/share/X11/xkb/rules/base.xml
 * /usr/share/X11/xkb/rules/evdev.xml
 
-Per installare il nuovo layout basterà sostituire questi file con quelli nella repo.
-Dopo di che basterà andare a selezionare il layout dalle impostazioni della tastiera; il layout si chiamerà US > English (US for italians).
+To install the new layout, simply replace these files with the ones in the repo.
+Then go into your keyboard settings and select the layout:
+**US > English (US for Italians)**.
 
-Il risultato sarà il seguente:
+Here’s what the result looks like:
 ![layout](https://i.imgur.com/iAgPQOF.png)
 
-# Lettere accentate
-Per gli accenti basterà tenere premuto il tasto alt-gr e poi la lettera interessata. Ad esempio:
+# Accented Letters
+For accents, just hold AltGr and press the corresponding letter. For example:
 
-* à = alt-gr + a
-* À = alt-gr + a (con caps lock attivo) oppure alt-gr + shift + a
+* à = AltGr + a
+* À = AltGr + a (with caps lock on) or AltGr + Shift + a
 
-e cosi per le altre vocali.
+Same applies to the other vowels.
 
-L'unica eccezione è la `e accentata`:
+The only exception is the accented e:
 
-* é = alt-gr + e
-* è = alt-gr + shift + e
+* é = AltGr + e
+* è = AltGr + Shift + e
 
-per avere la `é`/`è` in maiuscolo, basterà tenere attivo il capslock.
+To type uppercase É or È, just turn on caps lock.
 
 # Resources
-Dopo la creazione del layout ho trovato questo articolo della wiki di arch (la migliore wiki di sempre, a mani basse): [link](https://wiki.archlinux.org/title/X_keyboard_extension)
+* Arch wiki: [link](https://wiki.archlinux.org/title/X_keyboard_extension)
