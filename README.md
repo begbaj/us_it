@@ -1,6 +1,11 @@
 # us_it
 A X11 US keyboard layout for italians, explained steb by step
 
+# Windows Support
+us_it now supports Windows 11. You'll find the `.klc` file in the `win` directory, and a zip containing a pre-compiled installer.
+
+After installation, if it doesn't work, try to **reboot**. Yes. Windows never changes.
+
 ## Fix xkb update on Arch Linux
 To fix the following error message:
 ```
